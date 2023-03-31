@@ -3,13 +3,12 @@ package com.example.crudoperationfirebase
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
-import android.widget.EditText
 import android.widget.Toast
 import com.google.android.material.textfield.TextInputEditText
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
-class insertData : AppCompatActivity() {
+class InsertData : AppCompatActivity() {
     private lateinit var etEmpName: TextInputEditText
     private lateinit var etEmpAge: TextInputEditText
     private lateinit var etEmpSalary: TextInputEditText
@@ -20,10 +19,10 @@ class insertData : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_insert_data)
 
-        etEmpName = findViewById<TextInputEditText>(R.id.etEmpName)
-        etEmpAge = findViewById<TextInputEditText>(R.id.etEmpAge)
-        etEmpSalary = findViewById<TextInputEditText>(R.id.etEmpSalary)
-         btnSaveData = findViewById<Button>(R.id.btnSave)
+        etEmpName = findViewById(R.id.etEmpName)
+        etEmpAge = findViewById(R.id.etEmpAge)
+        etEmpSalary = findViewById(R.id.etEmpSalary)
+         btnSaveData = findViewById(R.id.btnSave)
 
 
         database = FirebaseDatabase.getInstance().getReference("Employees")
