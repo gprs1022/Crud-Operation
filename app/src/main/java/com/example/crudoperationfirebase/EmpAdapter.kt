@@ -8,13 +8,13 @@ import androidx.recyclerview.widget.RecyclerView
 
 class EmpAdapter (private val emplist: ArrayList<EmployeeModal>): RecyclerView.Adapter<EmpAdapter.ViewHolder>() {
 
-    private lateinit var mListener: onItemClickListener
+    private lateinit var mListener: OnItemClickListener
 
-    interface onItemClickListener {
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 
-    fun setOnItemClickListener(clickListener: onItemClickListener) {
+    fun setOnItemClickListener(clickListener: OnItemClickListener) {
         mListener = clickListener
     }
 
@@ -33,7 +33,7 @@ class EmpAdapter (private val emplist: ArrayList<EmployeeModal>): RecyclerView.A
         return emplist.size
     }
 
-    class ViewHolder(itemView: View, clickListener: onItemClickListener) :
+    class ViewHolder(itemView: View, clickListener: OnItemClickListener) :
         RecyclerView.ViewHolder(itemView) {
 
         val tvEmpName: TextView = itemView.findViewById(R.id.tvEmpName)

@@ -9,9 +9,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.*
-import com.google.firebase.database.core.view.View as View1
 
-class fetchingData : AppCompatActivity() {
+class FetchingData : AppCompatActivity() {
 
     private lateinit var empRecyclerView: RecyclerView
     private lateinit var tvLoadingData: TextView
@@ -28,10 +27,6 @@ class fetchingData : AppCompatActivity() {
 
         empList = arrayListOf<EmployeeModal>()
 
-        getEmployeesData()
-    }
-
-    private fun getEmployeesData() {
             empRecyclerView.visibility = GONE
             tvLoadingData.visibility = View.VISIBLE
 
@@ -48,12 +43,12 @@ class fetchingData : AppCompatActivity() {
 
 
                       val mAdapter = EmpAdapter(empList)
-                      empRecyclerView.adapter = mAdapter
+                      empRecyclerView?.adapter = mAdapter
 
-                      mAdapter.setOnItemClickListener(object : EmpAdapter.onItemClickListener{
+                      mAdapter.setOnItemClickListener(object : EmpAdapter.OnItemClickListener{
                           override fun onItemClick(position: Int) {
 
-                              val intent = Intent(this@fetchingData, EmployeeDetails::class.java)
+                              val intent = Intent(this@FetchingData, EmployeeDetails::class.java)
 
                               //put extras
                               intent.putExtra("empId", empList[position].empId)
